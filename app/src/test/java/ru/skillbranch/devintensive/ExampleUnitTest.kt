@@ -76,6 +76,7 @@ class ExampleUnitTest {
     fun test_transliteration() {
         assertEquals("Zhenya Stereotipov", Utils.transliteration("Женя Стереотипов"))
         assertEquals("Amazing_Petr", Utils.transliteration("Amazing Петр","_"))
+        assertEquals("mi mi[ mi]", Utils.transliteration("ми ми[ ми]"))
     }
 
     @Test

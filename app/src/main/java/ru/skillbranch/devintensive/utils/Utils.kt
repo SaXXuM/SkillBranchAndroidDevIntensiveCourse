@@ -25,8 +25,8 @@ object Utils {
             'Э' to "E", 'Ю' to "Yu", 'Я' to "Ya")
         val parts: List<String>? = payload?.split(" ")
 
-        return (parts?.get(0)?.map{ ruToEn[it] ?: it  }?.joinToString(separator = "") ?: "") +
-            delimiter + (parts?.get(1)?.map{ ruToEn[it] ?: it }?.joinToString(separator = "") ?: "")
+        return parts?.map{ it.map{ ruToEn[it] ?: it }.joinToString(separator = "") }
+            ?.joinToString(separator = delimiter) ?: ""
     }
 
     fun toInitials(firstName: String?, lastName: String?): String? {
