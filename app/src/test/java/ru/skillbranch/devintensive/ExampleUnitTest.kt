@@ -74,7 +74,7 @@ class ExampleUnitTest {
 
     @Test
     fun test_transliteration() {
-        assertEquals("Zhenya Stereotipov", Utils.transliteration("Женя Стереотипов", " "))
+        assertEquals("Zhenya Stereotipov", Utils.transliteration("Женя Стереотипов"))
         assertEquals("Amazing_Petr", Utils.transliteration("Amazing Петр","_"))
     }
 
@@ -88,6 +88,14 @@ class ExampleUnitTest {
         assertEquals("через 7 дней", Date().add(7, TimeUnits.DAY).humanizeDiff())
         assertEquals("более года назад", Date().add(-400, TimeUnits.DAY).humanizeDiff())
         assertEquals("более чем через год", Date().add(400, TimeUnits.DAY).humanizeDiff())
+    }
+
+    @Test
+    fun test_plural() {
+        assertEquals("1 секунду", TimeUnits.SECOND.plural(1))
+        assertEquals("4 минуты", TimeUnits.MINUTE.plural(4))
+        assertEquals("19 часов", TimeUnits.HOUR.plural(19))
+        assertEquals("222 дня", TimeUnits.DAY.plural(222))
     }
 
     @Test

@@ -63,5 +63,12 @@ enum class TimeUnits {
     SECOND,
     MINUTE,
     HOUR,
-    DAY
+    DAY;
+
+    fun plural(num: Int) : String = when (this) {
+        SECOND -> "${num} ${declOfNum(num, arrayOf("секунду", "секунды", "секунд"))}"
+        MINUTE -> "${num} ${declOfNum(num, arrayOf("минуту", "минуты", "минут"))}"
+        HOUR -> "${num} ${declOfNum(num, arrayOf("час", "часа", "часов"))}"
+        DAY -> "${num} ${declOfNum(num, arrayOf("день", "дня", "дней"))}"
+    }
 }
